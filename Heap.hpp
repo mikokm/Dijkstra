@@ -6,11 +6,11 @@ public:
 	Heap() = default;
 	~Heap() = default;
 
-	inline bool empty() const {
+	bool empty() const {
 		return m_elements.empty();
 	}
 
-	inline T pop() {
+	T pop() {
 		T e = m_elements.front();
 
 		if (size() > 0) {
@@ -26,13 +26,13 @@ public:
 		return e;
 	}
 
-	inline void push(T e) {
+	void push(T e) {
 		m_elements.push_back(e);
 		e->index = size();
 		e->index = reorder(e);
 	}
 
-	inline unsigned int reorder(T e) {
+	unsigned int reorder(T e) {
 		unsigned int i;
 
 		for (i = e->index; m_less(e, m_elements[i / 2]); i = i / 2) {
@@ -64,11 +64,11 @@ public:
 	}
 
 private:
-	inline size_t size() const {
+	size_t size() const {
 		return m_elements.size() - 1;
 	}
 
-	inline void swap(unsigned int i, unsigned int j) {
+	void swap(unsigned int i, unsigned int j) {
 		T e = m_elements[i];
 		m_elements[i] = m_elements[j];
 		m_elements[j] = e;

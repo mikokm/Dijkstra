@@ -49,11 +49,11 @@ public:
 	Graph& operator=(const Graph&) = delete;
 	Graph(const Graph&) = delete;
 
-	inline const NodeMap& get_nodes() const {
+	const NodeMap& get_nodes() const {
 		return m_nodes;
 	}
 
-	inline Node* get_or_add(int id) {
+	Node* get_or_add(int id) {
 		Node *node = m_nodes[id];
 		if (node == nullptr) {
 			node = new Node();
